@@ -35,7 +35,13 @@ export const registerCompany = async (req, res) => {
 export const getCompany = async (req, res) => {
     try {
         const userId = req.id;
-        const companies = await Company.find({userId});
+        const companies = await Company.find({user_id:userId});
+        if(companies.length === 0){
+            return res.status(400).json({
+                message: "Company not found",
+                success: false,
+            })
+        }
         return res.status(200).json({
             message: "Company fetched successfully",
             companies,
