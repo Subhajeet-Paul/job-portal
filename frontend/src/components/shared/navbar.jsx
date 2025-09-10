@@ -1,7 +1,8 @@
 import React from "react";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button"
+
 
 // import {Link} from 'react-router-dom'
 const navbar = () => {
@@ -22,12 +23,26 @@ const navbar = () => {
 
           <Popover>
             <PopoverTrigger asChild>
-              <Avatar>
+              <Avatar className="cursor-pointer">
                 <AvatarImage src="https://github.com/shadcn.png" />
-                
               </Avatar>
             </PopoverTrigger>
-            <PopoverContent>Place content for the popover here.</PopoverContent>
+            <PopoverContent className="w-80">
+              <div className="flex gap-4 space-y-2">
+                <Avatar className="cursor-pointer">
+                  <AvatarImage src="https://github.com/shadcn.png" />
+                </Avatar>
+                <div>
+                  <h4 className="font-medium">subhajeet</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Lorem ipsum dolor sit amet consectetur
+                  </p>
+                </div>
+              </div>
+              <div>
+                  <button variant="link">View profile</button>
+                </div>
+            </PopoverContent>
           </Popover>
         </div>
       </div>
