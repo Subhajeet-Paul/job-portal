@@ -3,6 +3,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { Button } from "@/components/ui/button";
 import { LogOut, User2 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 // import {Link} from 'react-router-dom'
 const navbar = () => {
@@ -23,8 +24,12 @@ const navbar = () => {
           </ul>
           {!user ? (
             <div>
+              <Link to="/login">
               <Button variant="outline">Login</Button>
+              </Link>
+              <Link to="/signup">
               <Button variant="outline" className="bg-[#6A3BC2] hover:bg-[#533e7b]">Signup</Button>
+              </Link>
             </div>
           ) : (
             <Popover>

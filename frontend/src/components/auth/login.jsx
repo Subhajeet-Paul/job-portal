@@ -1,8 +1,10 @@
 import React from 'react'
-
+import Navbar from "../shared/navbar.jsx"
 const login = () => {
   return (
-    <div>login</div>
+    <>
+    <Navbar/>
+    </>
   )
 }
 
