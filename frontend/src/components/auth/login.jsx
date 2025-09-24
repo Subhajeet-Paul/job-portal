@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Navbar from "../shared/navbar.jsx";
+import Navbar from "../shared/Navbar.jsx";
 import { Label } from "@/components/ui/label";
 import { Input } from "../ui/input.jsx";
 import axios from "axios";

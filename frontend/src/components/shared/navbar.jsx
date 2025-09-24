@@ -3,10 +3,11 @@ import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { Button } from "@/components/ui/button";
 import { LogOut, User2 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // import {Link} from 'react-router-dom'
-const navbar = () => {
+const Navbar = () => {
+  const navigate= useNavigate();
   const user = false;
   return (
     <div className="bg-white ">
@@ -17,9 +18,9 @@ const navbar = () => {
           </h1>
         </div>
         <div className="flex items-center gap-2">
-          <ul className="flex items-center font-medium gap-5">
-            <li>Home</li>
-            <li>Jobs</li>
+          <ul className="flex items-center font-medium gap-5 cursor-pointer">
+            <li  onClick={()=>navigate("/")}>Home</li>
+            <li onClick={()=>navigate("/jobs")}>Jobs</li>
             <li>Browse</li>
           </ul>
           {!user ? (
@@ -71,4 +72,4 @@ const navbar = () => {
   );
 };
 
-export default navbar;
+export default Navbar;
