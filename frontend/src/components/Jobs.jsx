@@ -13,9 +13,25 @@ const Jobs = () => {
           <div className="w-20%">
           <FilterCard />
           </div>
-          {jobsArray.map((item, index) => (
-            <Job />
-          ))}
+
+          {
+            jobsArray.length <= 0 ? <h1>No Jobs Found</h1> : (
+              <div className="flex-1 h-[80vh] overflow-y-auto pb-5">
+                <div className="grid grid-cols-3 gap-4">
+                {
+                  jobsArray.map((item, index) => (
+                    <div>
+                      <Job />
+                    </div>
+                  ))
+                }
+                
+
+                </div>
+                
+                </div>
+            )
+          }
         </div>
       </div>
     </div>

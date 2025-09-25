@@ -4,6 +4,8 @@ import Home from "./components/home.jsx"
 import Login from "./components/auth/login.jsx"
 import Signup from "./components/auth/signup.jsx"
 import Jobs from "./components/Jobs.jsx"
+import Browse from "./components/Browse.jsx"
+import Profile from "./components/Profile.jsx"
 
 const appRouter = createBrowserRouter([
   {
@@ -22,6 +24,14 @@ const appRouter = createBrowserRouter([
     path: "/jobs",
     element:<Jobs/>,
   },
+  {
+    path: "/browse",
+    element:<Browse/>,
+  },
+  {
+    path:"/profile",
+    element:<Profile/>
+  }
  
 ])
 function App() {

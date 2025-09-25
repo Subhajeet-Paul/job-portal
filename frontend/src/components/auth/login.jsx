@@ -8,7 +8,7 @@ import { USER_API_END_POINT } from "@/utils/constant.js";
 import { Link ,useNavigate} from "react-router-dom";
 import { toast } from "sonner";
 import { useDispatch, useSelector } from "react-redux";
-import { setLoading } from "@/redux/authSlice.js";
+import { setLoading, setUser } from "@/redux/authSlice.js";
 import { Button } from "../ui/button.jsx";
 import { Loader2 } from "lucide-react";
 
@@ -42,7 +42,9 @@ const login = () => {
       });
       if(res.data.success){
         toast.success(res.data.message);
+        dispatch(setUser(res.data.user))
         navigate("/");
+        
       }
     } catch (error) {
       console.log(error);
