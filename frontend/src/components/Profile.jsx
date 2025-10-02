@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "./shared/Navbar";
 import { Avatar, AvatarImage } from "./ui/avatar";
 import { Button } from "./ui/button";
 import { Contact, Mail, Pen } from "lucide-react";
 import { Badge } from "./ui/badge";
+import { Label } from "./ui/label";
+import AppliedJobTable from "./AppliedJobTable";
+import UpdateProfileDialog from "./UpdateProfileDialog";
 
-
-const skills=["html","css","javascript","react"]
+const skills = ["html", "css", "javascript", "react"];
+const isResume = true;
 const Profile = () => {
+  const [open, setOpen] = useState(false);
+
   return (
     <div>
       <Navbar />
@@ -25,7 +30,9 @@ const Profile = () => {
               </p>
             </div>
           </div>
-          <Button className="text-right" variant={"outline"}>
+          <Button className="text-right" variant={"outline"}
+          onClick={()=>setOpen(true)}
+          >
             <Pen />
           </Button>
         </div>
@@ -39,13 +46,37 @@ const Profile = () => {
             <span>7439430211</span>
           </div>
         </div>
-        <div>
-            <h1>Skills</h1>
-            {
-                skills.length !=0? skills.map((item,index)=>(<Badge key={index}>{item}</Badge>)): <span>No Skills</span>
-            }
+        <div className="my-5">
+          <h1>Skills</h1>
+          <div className="flex items-center gap-2">
+            {skills.length != 0 ? (
+              skills.map((item, index) => <Badge key={index}>{item}</Badge>)
+            ) : (
+              <span>NA</span>
+            )}
+          </div>
+        </div>
+        <div className="grid w-full max-w-sm items-center gap-1.5 ">
+          <Label className={"text-md font-bold "}>Resume</Label>
+          {isResume ? (
+            <a
+              target="blank"
+              href=""
+              className="text-blue-500 w-full hover:underline cursor-pointer"
+            >
+              See My Resume
+            </a>
+          ) : (
+            <span>NA</span>
+          )}
         </div>
       </div>
+        <div className="max-w-4xl mx-auto bg-white rounded-2xl">
+          <h1 className="font-bold text-lg my-5">Applied Jobs</h1>
+          {/* Application table */}
+          <AppliedJobTable/>
+        </div>
+        <UpdateProfileDialog open={open} setOpen={setOpen}/>
     </div>
   );
 };
